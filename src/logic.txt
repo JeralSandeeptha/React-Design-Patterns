@@ -1,0 +1,12 @@
+I have 3 different components called,
+    1. Heading
+    2. Paragraph
+    3. SubTitle
+
+I wanted to Increase the font size with the same size.
+
+Instead of increasing font size diffrently we can create a short code for increase font size. 
+This is also a component.
+Then we can wrap related component with this component like in the App.tsx file.
+
+So finally i can add a same logic for a component without affecting to component code.
