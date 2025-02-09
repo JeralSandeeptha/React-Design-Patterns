@@ -1,32 +1,15 @@
-import './App.css'
-import Heading from './components/Heading';
-import Paragraph from './components/Paragraph';
-import SubTitle from './components/SubTitle';
-import WithLargeFont from './utils/WithLargeFont';
+import ControllComponents from './components/ControllComponents';
+import UnControllComponents from './components/UnControllComponents';
 
-function App() {
-
-  const LargeParagraph = WithLargeFont(Paragraph);
-  const LargeHeading = WithLargeFont(Heading);
-  const LargeSubTitle = WithLargeFont(SubTitle);
-
+const App = () => {
   return (
-    <>
-      <Heading />
-      <LargeHeading />
-
-      <br />
-
-      <Paragraph />
-      <LargeParagraph />
-
-      <br />
-
-      <SubTitle />
-      <LargeSubTitle />
-    </>
-  );
-
+    <div>
+      {/* This component is handled by react state */}
+      <ControllComponents />
+      {/* This component is handled without react state */}
+      <UnControllComponents />
+    </div>
+  )
 }
 
-export default App;
+export default App
