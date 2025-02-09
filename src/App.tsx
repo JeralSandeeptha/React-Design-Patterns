@@ -1,29 +1,40 @@
-import './App.css'
-import Heading from './components/Heading';
-import Paragraph from './components/Paragraph';
-import SubTitle from './components/SubTitle';
-import WithLargeFont from './utils/WithLargeFont';
+import { useEffect, useState } from 'react';
+import './App.css';
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
 
-  const LargeParagraph = WithLargeFont(Paragraph);
-  const LargeHeading = WithLargeFont(Heading);
-  const LargeSubTitle = WithLargeFont(SubTitle);
+  // this is a custom hook for access local storage
+
+  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
+  const { setLocalStorageItem, getLocalStorageItem, clearLocalStorageItem } = useLocalStorage();
+
+  const handleUser = () => {
+    setLocalStorageItem('name', name);
+    console.log('name', name);
+  }
+  
+  const clearUser = () => {
+    clearLocalStorageItem('name');
+  }
+
+  const fetchUser = () => {
+    const fetchUsername = getLocalStorageItem('name');
+    setUsername(fetchUsername);
+    console.log(fetchUsername);
+  }
+
+  useEffect(() => {
+    fetchUser();
+  }, [username]);
 
   return (
     <>
-      <Heading />
-      <LargeHeading />
-
-      <br />
-
-      <Paragraph />
-      <LargeParagraph />
-
-      <br />
-
-      <SubTitle />
-      <LargeSubTitle />
+      <h1>{ username }</h1>
+      <input type="text" onChange={(e) => setName(e.target.value)}/>
+      <button onClick={handleUser}>Set User</button>
+      <button onClick={clearUser}>Clear User</button>
     </>
   );
 
