@@ -18,6 +18,7 @@ const Users = () => {
   //     setIsLoading,
   //     setUsers
   //   });
+  //   console.log('Normal getUsers function is being called');
   // }
 
   // This is the memorized getusers function
@@ -28,6 +29,7 @@ const Users = () => {
       setIsLoading,
       setUsers
     });
+    console.log('Optimized getUsers function is being called');
   }, []);
 
   useEffect(() => {

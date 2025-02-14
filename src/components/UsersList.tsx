@@ -22,7 +22,7 @@ const UsersList = (props: UsersListProps) => {
               {
                 props.users.map((user) => {
                   return (
-                    <User {...user} />
+                    <User {...user} key={user.id}/>
                   )
                 })
               }
