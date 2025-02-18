@@ -14,12 +14,13 @@ They are,
 
 ## Table of Contents
 
-- [HOC Pattern](#hoc)
-- [Factory Pattern](#factory)
-- [Provider Pattern](#provider)
-- [Custom Hook Pattern](#customhook)
-- [Render Props Pattern](#renderprops)
-- [Compound Pattern](#compound)
-- [Control and Uncontroll Components Pattern](#controllanduncontrollcomponents)
-- [Container Presenter Pattern](#containerpresenter)
+- [HOC Pattern](#hoc-pattern)
+- [Factory Pattern](#factory-pattern)
+- [Provider Pattern](#provider-pattern)
+- [Custom Hook Pattern](#custom-hook-pattern)
+- [Render Props Pattern](#render-props-pattern)
+- [Compound Components Pattern](#compound-components-pattern)
+- [Control and Uncontroll Components Pattern](#controll-and-uncontroll-components-pattern)
+- [Container Presenter Pattern](#container-presenter-pattern)
   
+## HOC Design Pattern
