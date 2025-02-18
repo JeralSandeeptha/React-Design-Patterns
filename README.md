@@ -23,4 +23,4 @@ They are,
 - [Control and Uncontroll Components Pattern](#controll-and-uncontroll-components-pattern)
 - [Container Presenter Pattern](#container-presenter-pattern)
   
-## HOC Design Pattern
+## HOC Pattern
