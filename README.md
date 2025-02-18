@@ -20,9 +20,9 @@ They are,
 - [Custom Hook Pattern](#custom-hook-pattern)
 - [Render Props Pattern](#render-props-pattern)
 - [Compound Components Pattern](#compound-components-pattern)
-- [Control and Uncontroll Components Pattern](#controll-and-uncontroll-components-pattern)
+- [Control and Uncontrol Components Pattern](#control-and-uncontrol-components-pattern)
 - [Container Presenter Pattern](#container-presenter-pattern)
   
 ## HOC Pattern
 
-## Control and Uncontroll Components Pattern
+## Control and Uncontrol Components Pattern
