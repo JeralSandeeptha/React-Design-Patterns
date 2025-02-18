@@ -2,7 +2,7 @@
 
 We can identify different React Design Patterns.
 
-They are
+They are,
 - HOC / Higher Order Components Pattern
 - Factory Pattern
 - Provider Pattern
