@@ -25,6 +25,116 @@ They are,
   
 ## HOC Pattern
 
+A function that takes a component and returns a new component with additional props or behavior.
+
+The scenario is, I have two text components and should add the same font size for both. Sizees should be large with same value.
+
+This is a Header Component
+```js
+import React from 'react';
+
+type Props = {
+    style?: React.CSSProperties
+};
+
+const Heading = (props: Props) => {
+
+    return (
+        <h1 style={{...props.style}}>This is a Heading Component</h1>      
+    );
+
+}
+
+export default Heading;
+```
+This is a Paragraph Component.
+```js
+import React from 'react';
+
+type Props = {
+  style?: React.CSSProperties
+};
+
+const Paragraph = (props: Props) => {
+
+  return (
+    <p style={{...props.style}}>This is a Paragraph Component</p>      
+  );
+
+}
+
+export default Paragraph;
+```
+This is a SubTitle Component
+```js
+import React from 'react';
+
+type Props = {
+    style?: React.CSSProperties
+};
+
+const SubTitle = (props: Props) => {
+
+  return (
+    <h3 style={{...props.style}}>This is a Sub Title Component</h3>
+  );
+
+}
+
+export default SubTitle;
+```
+
+Now we create a HOC. This is the HOC.
+```js
+import { ComponentType } from 'react';
+
+const WithLargeFont = <Props extends object>(WrappedComponent: ComponentType<Props>) => {
+
+  return (props: Props) => {
+    return <WrappedComponent {...props} style={{ fontSize: '80px' }}/>
+  };
+
+};
+
+export default WithLargeFont;
+```
+
+Then we can use this pass the component to the Higher Order Component. It will return a new component what we want with changes.
+```js
+import './App.css'
+import Heading from './components/Heading';
+import Paragraph from './components/Paragraph';
+import SubTitle from './components/SubTitle';
+import WithLargeFont from './utils/WithLargeFont';
+
+function App() {
+
+  const LargeParagraph = WithLargeFont(Paragraph);
+  const LargeHeading = WithLargeFont(Heading);
+  const LargeSubTitle = WithLargeFont(SubTitle);
+
+  return (
+    <>
+      <Heading />
+      <LargeHeading />
+
+      <br />
+
+      <Paragraph />
+      <LargeParagraph />
+
+      <br />
+
+      <SubTitle />
+      <LargeSubTitle />
+    </>
+  );
+
+}
+
+export default App;
+```
+
 ## Control and Uncontrol Components Pattern
 
 In the control components their state is managed by the react state.
