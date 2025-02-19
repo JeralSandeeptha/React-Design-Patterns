@@ -135,6 +135,59 @@ function App() {
 export default App;
 ```
 
+## Factory Pattern
+
+A function that creates and returns a component with specific behavior.
+
+This is the factory design pattern which can get different multiple specific behaviours.
+```js
+type Props = {
+    children?: React.ReactNode
+}
+
+const ButtonFactory = (type: string) => {
+    switch (type) {
+      case "primary":
+        return (props: Props) => <button style={{ background: "blue", color: "white" }}>{props.children}</button>;
+      case "secondary":
+        return (props: Props) => <button style={{ background: "gray", color: "white" }}>{props.children}</button>;
+      case "danger":
+        return (props: Props) => <button style={{ background: "red", color: "white" }}>{props.children}</button>;
+      default:
+        return (props: Props) => <button>{props.children}</button>;
+    }
+};
+
+export default ButtonFactory;
+```
+
+We can use like this.
+```js
+import './App.css'
+import ButtonFactory from './utils/ButtonFactory';
+import { Header1, Header2, Header3, Header4, Header5, Header6 } from './utils/TextFactory';
+import { DangerButtonWithTheme, PrimaryButtonWithTheme, SuccessButtonWithTheme } from './utils/ButtonFactoryTwo';
+
+function App() {
+
+  // we can create elements in here
+  const PrimaryButton = ButtonFactory('primary');
+  const DangerButton = ButtonFactory('danger');
+  const SecondaryButton = ButtonFactory('secondary');
+
+  return (
+    <>
+      <PrimaryButton>Primary Button</PrimaryButton>
+      <DangerButton>Danger Button</DangerButton>
+      <SecondaryButton>Danger Button</SecondaryButton>
+
+    </>
+  )
+}
+
+export default App;
+```
+
 ## Control and Uncontrol Components Pattern
 
 In the control components their state is managed by the react state.
